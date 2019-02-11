@@ -1,0 +1,23 @@
+{
+  "root": true,
+  "project": {
+    "name": "Vue"
+  },
+  "api": {
+    "projectId": "7fa9qio9",
+    "dataset": "vue-json"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema.js"
+    }
+  ]
+}
