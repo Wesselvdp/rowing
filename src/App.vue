@@ -30,7 +30,7 @@ import ChartContainer from './components/ChartContainer';
 
 // import axios from 'axios';
 
-const data = require('./assets/db.json');
+const data = require('./db/db.json');
 
 export default {
   name: 'app',

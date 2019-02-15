@@ -4,20 +4,23 @@
     "entries": [
       {
         "id": "e1",
-        "user": "u1",
+        "user": ["u1"],
         "label": "SKA",
+        "color": "rgba(23, 64, 115, 1)",
         "interval": [90, 93, 94, 89]
       },
       {
         "id": "e2",
-        "user": "u2",
+        "user": ["u1"],
         "label": "NER",
+        "color": "rgba(153, 0, 0, 1)",
         "interval": [87, 90, 91, 89]
       },
       {
         "id": "e3",
-        "user": "u3",
+        "user": ["u1"],
         "label": "LAG",
+        "color": "rgba(234, 26, 53, 1)",
         "interval": [90, 89, 91, 89]
       }
     ]
