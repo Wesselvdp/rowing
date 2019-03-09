@@ -2,8 +2,14 @@
   <div id="app">
     <b-container>
       <b-row>
-         <b-col cols="12">
-            <ChartContainer />
+         <b-col cols="6">
+            <MatchRanking  />
+         </b-col>
+         <b-col cols="6">
+            <ChartContainer chartType="average" />
+         </b-col>
+         <b-col cols="6">
+            <ChartContainer chartType="race" />
          </b-col>
       </b-row>
       <b-row>
@@ -27,6 +33,7 @@
 import List from './components/List';
 import Profile from './components/Profile';
 import ChartContainer from './components/ChartContainer';
+import MatchRanking from './components/MatchRanking';
 
 // import axios from 'axios';
 
@@ -37,6 +44,7 @@ export default {
   components: {
     List,
     Profile,
+    MatchRanking,
     ChartContainer
   },
   data() {
@@ -44,20 +52,6 @@ export default {
       users: [],
       games: [],
       }
-  },
-  methods: {
-    sortUsers() {
-      let users = this.users
-    
-      users.sort((a, b) => {
-        return b.time - a.time;
-      })
-    },
-    // secondsToMinutes(seconds) {
-    //   var minute = Math.floor(seconds / 60);
-    //   seconds = seconds % 60;
-    //   return ((minute < 10) ? "0"+minute : minute) + ":" + ((seconds < 10) ? "0"+seconds : seconds);
-    // }
   },
   created() {
     const fillUsers = () => this.users = [...data.users];
@@ -73,7 +67,7 @@ export default {
     //   fillGames();
     // }
     // getData();
-  }
+  },
 }
 </script>
 
