@@ -30,17 +30,17 @@
 </template>
 
 <script>
-import List from './components/List';
-import Profile from './components/Profile';
-import ChartContainer from './components/ChartContainer';
-import MatchRanking from './components/MatchRanking';
+import List from "./components/List";
+import Profile from "./components/Profile";
+import ChartContainer from "./components/ChartContainer";
+import MatchRanking from "./components/MatchRanking";
 
-// import axios from 'axios';
+import axios from "axios";
 
-const data = require('./db/db.json');
+const data = require("./db/db.json");
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     List,
     Profile,
@@ -50,25 +50,34 @@ export default {
   data() {
     return {
       users: [],
-      games: [],
-      }
+      games: []
+    };
+  },
+  methods: {
+    doQuery() {
+      axios({
+        url: "http://localhost:4000/",
+        method: "post",
+        data: {
+          query: `
+            query {
+              getUsers
+            }
+            `
+        }
+      }).then(result => {
+        console.log(result.data);
+      });
+    }
   },
   created() {
-    const fillUsers = () => this.users = [...data.users];
-    const fillGames = () => this.games = [...data.games];
+    const fillUsers = () => (this.users = [...data.users]);
+    const fillGames = () => (this.games = [...data.games]);
     fillUsers();
     fillGames();
-
-    // const getData = async () => {
-    //   const dataPromise = await axios.get('https://raw.githubusercontent.com/Wesselvdp/jsonplaceholder/master/db.json');
-    //   const data = await dataPromise.data;
-     
-    //   fillUsers();
-    //   fillGames();
-    // }
-    // getData();
-  },
-}
+    this.doQuery();
+  }
+};
 </script>
 
 <style>
@@ -78,7 +87,7 @@ export default {
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

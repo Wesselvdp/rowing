@@ -10,7 +10,9 @@ Vue.use(BootstrapVue);
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import { createProvider } from './vue-apollo'
 
 new Vue({
-  render: h => h(App),
+  apolloProvider: createProvider(),
+  render: h => h(App)
 }).$mount('#app')
